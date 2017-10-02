@@ -1,0 +1,49 @@
+
+<div class="title-div">
+    <h1 class="title-main">Eat-da-burger!</h1>
+    <p class="title-tag">Select a burger to eat, order a burger, or create a new one.</p>
+</div>
+
+<!-- Pass in data from server.js -->
+<div class="burger-menu">
+    
+    <div class="avail-burger">
+    <h2>Eat-da-burger</h2>
+    {{#each burgers}}
+        {{#unless devoured}}
+        <div class="burger-div">
+             <span class="label">{{this.id}}</span> 
+            <span class="label">{{this.burger_name}}</span>
+            <button data-id="{{this.id}}" class="eat-burger">Eat-da-burger</button>
+        </div>
+        {{/unless}}
+    {{/each}}
+    </div>
+
+    <div class="order-burger">
+    <h2>Make-da-burger</h2>
+    {{#each burgers}}
+        {{#if devoured}}
+        <div class="burger-div">
+            <button data-id="{{this.id}}" class="make-burger">Make-da-burger</button>
+            <span class="label">{{this.id}}</span> 
+            <span class="label">{{this.burger_name}}</span>
+        </div>
+        {{/if}}
+    {{/each}}
+    </div>  
+</div>
+
+
+<div class="burger-create">
+    <h2>Create-da-burger</h2>
+
+    <form class="create-form">
+    <div class="form-group">
+        <label for="quo">Enter your burger's name:</label>
+        <textarea id="quo" name="burger_name" rows="8" cols="40"></textarea>
+    </div>
+
+    <button type="submit">Create-da-burger</button>
+    </form>
+</div>
