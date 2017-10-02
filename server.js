@@ -34,48 +34,59 @@ connection.connect(function(err) {
 });
 
 // Serve index.handlebars to the root route.
+//get all the burgers and render to index via handlebars
 app.get("/", function(req, res) {
   connection.query("SELECT * FROM burgers;", function(err, data) {
     if (err) {
       return res.status(500).end();
     }
-
     res.render("index", { burgers: data });
   });
 });
 
 
-// add a burger
-// app.post("/api/quotes", function(req, res) {
-//   connection.query("INSERT INTO quotes (author, quote) VALUES (?, ?)", [
-//     req.body.author, req.body.quote
-//   ], function(err, result) {
-//     if (err) {
-//       // If an error occurred, send a generic server faliure
-//       return res.status(500).end();
-//     }
+// Retrieve all burgers
+app.get("/api/burgers", function(req, res) {
+  connection.query("SELECT * FROM burgers;", function(err, data) {
+    if (err) {
+      return res.status(500).end();
+    }
 
-//     // Send back the ID of the new quote
-//     res.json({ id: result.insertId });
-//   });
-// });
+    res.json(data);
+  });
+});
 
-// Update a burgers devoured boolean value
-// app.put("/api/quotes/:id", function(req, res) {
-//   connection.query("UPDATE quotes SET author = ?, quote = ? WHERE id = ?", [
-//     req.body.author, req.body.quote, req.params.id
-//   ], function(err, result) {
-//     if (err) {
-//       // If an error occurred, send a generic server faliure
-//       return res.status(500).end();
-//     } else if (result.changedRows == 0) {
-//       // If no rows were changed, then the ID must not exist, so 404
-//       return res.status(404).end();
-//     } else {
-//       res.status(200).end();
-//     }
-//   });
-// });
+
+// Update-da-burger 
+app.put("/burgers", function(req, res) {
+
+  connection.query("UPDATE burgers SET devoured = ? WHERE id = ?", [req.body.devoured, req.body.id], function(err, result) {
+    if (err) {
+      // If an error occurred, send a generic server faliure
+      return res.status(500).end();
+    } else if (result.changedRows == 0) {
+      // If no rows were changed, then the ID must not exist, so 404
+      return res.status(404).end();
+    } else {
+      res.status(200).end();
+    }
+  });
+});
+
+
+// Create a new burger
+app.post("/burgers", function(req, res) {
+  connection.query("INSERT INTO burgers (burger_name, devoured) VALUES (?, 0)", [req.body.burger_name], function(err, result) {
+    if (err) {
+      return res.status(500).end();
+    }
+
+    // Send back the ID of the new todo
+    res.json({ id: result.insertId });
+    console.log({ id: result.insertId });
+  });
+});
+
 
 
 app.listen(port, function() {

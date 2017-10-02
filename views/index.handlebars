@@ -1,49 +1,47 @@
-
 <div class="title-div">
     <h1 class="title-main">Eat-da-burger!</h1>
-    <p class="title-tag">Select a burger to eat, order a burger, or create a new one.</p>
+    <p class="title-tag">Select a burger to eat, order a burger, or create a new one!</p>
 </div>
 
 <!-- Pass in data from server.js -->
 <div class="burger-menu">
-    
-    <div class="avail-burger">
-    <h2>Eat-da-burger</h2>
-    {{#each burgers}}
-        {{#unless devoured}}
-        <div class="burger-div">
-             <span class="label">{{this.id}}</span> 
+
+    <div class="avail-burger menu-section">
+        <h2>Eat-da-burger</h2>
+        {{#each burgers}} {{#unless devoured}}
+        <div class="burger-div eat-burger">
+            <span class="label"># {{this.id}}</span>
             <span class="label">{{this.burger_name}}</span>
-            <button data-id="{{this.id}}" class="eat-burger">Eat-da-burger</button>
+            <button data-id="{{this.id}}" class="eat-burger-btn">Eat-da-burger</button>
         </div>
-        {{/unless}}
-    {{/each}}
+        {{/unless}} {{/each}}
     </div>
 
-    <div class="order-burger">
-    <h2>Make-da-burger</h2>
-    {{#each burgers}}
-        {{#if devoured}}
-        <div class="burger-div">
-            <button data-id="{{this.id}}" class="make-burger">Make-da-burger</button>
-            <span class="label">{{this.id}}</span> 
+    <div class="order-burger menu-section">
+        <h2>Make-da-burger</h2>
+        {{#each burgers}} {{#if devoured}}
+        <div class="burger-div make-burger">
+            <button data-id="{{this.id}}" class="make-burger-btn">Make-da-burger</button>
+            <span class="label"># {{this.id}}</span>
             <span class="label">{{this.burger_name}}</span>
         </div>
-        {{/if}}
-    {{/each}}
-    </div>  
+        {{/if}} {{/each}}
+    </div>
 </div>
 
-
-<div class="burger-create">
-    <h2>Create-da-burger</h2>
-
-    <form class="create-form">
-    <div class="form-group">
-        <label for="quo">Enter your burger's name:</label>
-        <textarea id="quo" name="burger_name" rows="8" cols="40"></textarea>
+<div class="burger-create menu-section">
+    <div>
+        <h2>Create-da-burger</h2>
     </div>
-
-    <button type="submit">Create-da-burger</button>
-    </form>
+    <div>
+        <p>Enter your burger's name:</p>
+    </div>
+    <div class="form-group">
+        <form class="create-form">
+            <textarea id="burger-text" name="burger_name" rows="2" cols="40"></textarea>
+        </form>
+        <div class="create-btn-div">
+            <button type="submit" class="burger-create-btn">Create-da-burger</button>
+        </div>
+    </div>
 </div>
