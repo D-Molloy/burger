@@ -1,11 +1,19 @@
+{{!-- the template for the html page--}}
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-		<link rel="stylesheet" href="/assets/css/style.css" type="text/css" />
-		<script src="https://code.jquery.com/jquery.js"></script>
-		<script src="/js/burgers.js"></script>
 		<title>Eat-da-burger</title>
+		{{!-- favicon --}}
+		<link rel="shortcut icon" type="img/png" href="/assets/img/burger-icon.png">
+		{{!-- link to custom stylesheet --}}
+		<link rel="stylesheet" href="/assets/css/style.css" type="text/css" />
+		{{!-- link to jQuery --}}
+		<script src="https://code.jquery.com/jquery.js"></script>
+		{{!-- link to JS script --}}
+		<script src="/js/burgers.js"></script>
+		{{!-- link to Google Fonts --}}
+		<link href="https://fonts.googleapis.com/css?family=Happy+Monkey|Titan+One" rel="stylesheet">
 	</head>
 	<body>
 		{{{ body }}}

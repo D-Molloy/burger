@@ -1,40 +1,41 @@
 <div class="title-div">
     <h1 class="title-main">Eat-da-burger!</h1>
-    <p class="title-tag">Select a burger to eat, order a burger, or create a new one!</p>
+    <p class="title-tag">Select a burger to eat, make a burger, or create a new one!</p>
 </div>
 
-<!-- Pass in data from server.js -->
 <div class="burger-menu">
-
     <div class="avail-burger menu-section">
-        <h2>Eat-da-burger</h2>
+        <h2 class="burger-menu-title">Eat-da-burger!</h2>
+        {{!-- in this div, only display the burgers that HAVE NOT been devoured --}}
         {{#each burgers}} {{#unless devoured}}
         <div class="burger-div eat-burger">
-            <span class="label"># {{this.id}}</span>
+            <span class="label">#{{this.id}}</span>
             <span class="label">{{this.burger_name}}</span>
             <button data-id="{{this.id}}" class="eat-burger-btn">Eat-da-burger</button>
         </div>
         {{/unless}} {{/each}}
     </div>
-
+    <img class="burger-gif" src="assets/img/burger.gif" alt="heart burger gif">
     <div class="order-burger menu-section">
-        <h2>Make-da-burger</h2>
+        <h2 class="burger-menu-title">Make-da-burger!</h2>
+        {{!-- in this div, only display the burgers that HAVE been devoured --}}
         {{#each burgers}} {{#if devoured}}
         <div class="burger-div make-burger">
             <button data-id="{{this.id}}" class="make-burger-btn">Make-da-burger</button>
-            <span class="label"># {{this.id}}</span>
+            <span class="label">#{{this.id}}</span>
             <span class="label">{{this.burger_name}}</span>
         </div>
         {{/if}} {{/each}}
     </div>
 </div>
 
+{{!-- new burger form --}}
 <div class="burger-create menu-section">
     <div>
-        <h2>Create-da-burger</h2>
+        <h2 class="burger-menu-title">Create-da-burger!</h2>
     </div>
     <div>
-        <p>Enter your burger's name:</p>
+        <p class="create-tag">Enter your burger's name:</p>
     </div>
     <div class="form-group">
         <form class="create-form">

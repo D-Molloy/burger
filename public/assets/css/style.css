@@ -1,19 +1,88 @@
-* {
-    border: 1px black solid;
+html {
+    background-color: #FD4893;
 }
+
 .title-div {
     text-align: center;
 }
+
+.burger-gif {
+    max-width: 200px;
+}
+
 .menu-section {
-    width: 30%;
+    width: 40%;
+}
+
+.title-main,
+.burger-menu-title {
+    font-family: 'Titan One', cursive;
+    color: #61C4EB;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+    margin-bottom: 5px;
+}
+
+.title-main {
+    font-size: 4em;
+}
+
+.burger-menu-title {
+    font-size: 2em;
+    margin-top: 15px;
 }
 
 .burger-menu {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+    align-items: flex-start
 }
 
+.avail-burger,
+.order-burger,
+.burger-create {
+    background-color: #FA7DB1;
+    border-radius: 25px;
+    border: 4px outset #EB307E;
+}
+
+.title-tag,
+.label,
+.create-tag {
+    font-family: 'Happy Monkey', cursive;
+}
+
+.title-tag {
+    font-size: 30px;
+    margin: 15px;
+}
+
+.create-tag {
+    font-size: 20px;
+    margin: 10px 0px;
+}
+
+.eat-burger {
+    margin-right: 80px;
+}
+
+.make-burger {
+    margin-left: 80px;
+}
+
+.burger-div {
+    margin-bottom: 5px;
+}
+
+.label {
+    margin: 2px 5px;
+    font-size: 18px;
+}
+
+.burger-menu-title {
+    text-align: center;
+}
 
 .eat-burger {
     display: flex;
@@ -30,6 +99,11 @@
     flex-direction: column;
     align-items: center;
     margin: auto;
+    margin-top: 20px;
+}
+
+.burger-create-btn {
+    margin-bottom: 10px;
 }
 
 .create-btn-div {
@@ -39,3 +113,16 @@
     margin: auto;
 }
 
+button {
+    background-color: #61C4EB;
+    border: 2px solid #34809B;
+    border-radius: 25px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-family: 'Happy Monkey', cursive;
+
+}
+
+button:hover {
+    background-color: #34809B;
+}
